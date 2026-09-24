@@ -1,0 +1,17 @@
+services:
+  iot:
+    build: ./IOT
+    environment:
+      - VERSAO=$VERSAO
+    deploy:
+      replicas: 3
+    volumes:
+      - ./IOT/app/build/install/app:/aplicacao
+
+  gerenciador:
+    build: ./Gerenciador
+    # durante o desenvolvimento
+    # necessário executar na máquina local: ./gradlew installDist
+    volumes:
+      - ./Gerenciador/app/build/install/app:/aplicacao
+
