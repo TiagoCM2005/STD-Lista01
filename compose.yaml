@@ -2,9 +2,9 @@ services:
   iot:
     build: ./IOT
     environment:
-      - VERSAO=$VERSAO
+      - VERSAO=${VERSAO:-v1.0}
     deploy:
-      replicas: 3
+      replicas: 1
     volumes:
       - ./IOT/app/build/install/app:/aplicacao
 
